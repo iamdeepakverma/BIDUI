@@ -1,0 +1,20 @@
+.header-1{
+    margin-top: 20px;
+}
+
+.header-1 .from-2{
+    margin-top: 100px;
+}
+
+.from-2{
+    border-radius: 5px;
+    border: 1px solid #FF4800 !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+.from-2 .form-form{
+    border: 1px solid #FF4800 !important;   
+}
+.class{
+    width:60%;
+    margin: 0 auto;
+}

@@ -1,0 +1,16 @@
+.header-1{
+    display: flex;
+    justify-content: space-between;
+}
+.header-1 .btn-danger{
+    background-color: #FF4800;;
+
+}
+.catimg{
+    height: auto;
+    width: 100px;
+    
+}
+.modal-dialog h5{
+    text-align: center;
+}

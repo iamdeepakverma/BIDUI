@@ -1,0 +1,8 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: all 0.3s;
+}
+
+.Navbar{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 9px 35px 5px;
+}

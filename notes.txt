@@ -1,0 +1,13 @@
+                        MERN AAp
+
+To crate mern common app ui will be implemented by using with react js server site will be express and deta base support will be implementd by using mongodb, to emplmentd there are two base.
+
+1. => Implment react application and REST API on different parts. 
+NOTE => In above case if same application end will be implemnetd on different potes and leads to genrate the problem of cross origin,
+                        To resolve the problem of cross origin on REST API end "cross" Module is to be installed.
+
+2.Create common build for Create UI this build must be link with express application entire apllication will be invoked on common port that is server port
+
+                       WEB SERVICE
+
+It is a client side codes capable to send request from cliend end server end or (API) in reat axious is a tool responsible to create webservice. 

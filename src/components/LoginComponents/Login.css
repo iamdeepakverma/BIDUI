@@ -1,0 +1,122 @@
+.btn-color{
+    background-color: #0e1c36;
+    color: #fff;
+    
+  }
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  
+  
+  .cardbody-color{
+    background-color: #ebf2fa;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+
+  button span{
+    height: 40px;
+    width: 40px;
+  }
+  .login {
+    position: relative;
+}
+
+.fa-xmark {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    font-size: 36px;
+}
+
+/* fee */
+.container-form {
+  max-width: 340px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 30px 30px rgba(254, 157, 157, 0.2);
+  border-radius: 20px;
+  position: relative;
+  }
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.label1 {
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.button1 {
+  align-self: center;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button1:hover {
+  background-color: #0056b3;
+}
+
+.container-form::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  pointer-events: none;
+  border-radius: 10px;
+  z-index: -1;
+}
+.input-field-input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 117, 117, 0.2);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.input-field-input:focus {
+  border-color: #bf7e6d;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f4623a;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+     
+}
+
+input[type="submit"]:hover {
+  background-color: #e84b13;
+}

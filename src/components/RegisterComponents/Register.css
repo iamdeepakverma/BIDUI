@@ -1,0 +1,10 @@
+.sign-up {
+    position: relative;
+}
+
+.fa-xmark {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    font-size: 36px;
+}
