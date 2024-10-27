@@ -1,6 +1,6 @@
 import React from 'react';
+import { Route , Routes } from 'react-router-dom';
 import './App.css';
-import { Route , Router, Routes } from 'react-router-dom';
 import Home from './components/HomeComponent/Home';
 import Topbar from './components/TopbarComponents/Topbar';
 import Header from './components/Headercomponents/Header';
@@ -23,6 +23,11 @@ import ChangePassword from './components/ChangePassword/ChangePassword';
 import Viewcategory from './components/ViewCategory/ViewCategory';
 import ViewSubCategory from './components/ViewSubCategory/ViewSubCategory';
 import AddProduct from './components/AddProduct/AddProduct';
+import ViewProduct from './components/ViewProduct/ViewProduct';
+import Bidproduct from './components/BidProduct/BidProduct';
+import ShowBid from './components/ShowBid/Showbid';
+import Verifyuser from './components/VerifyuserComponent/Verifyuser';
+
 
 function App() {
 
@@ -48,12 +53,19 @@ function App() {
             <Route path="/EditProfile" element={<Editprofile/>}>Edit Profile</Route>
             <Route path="/viewcategory" element={<Viewcategory/>}>Search Products</Route>
             <Route path="/viewSubCategory/:catnm" element={<ViewSubCategory/>}>ViewSubCategory</Route>
-            <Route path="/viewproduct" element={<AddProduct/>}>View Product</Route>
+            <Route path="/addproduct" element={<AddProduct/>}>View Product</Route>
+            <Route path="/viewproduct/:_id" element={<ViewProduct/>}>View Product</Route>
+            <Route path="/bidproduct/:pid" element={<Bidproduct/>}>View Product</Route>
+            <Route path="/showbid/:pid" element={<ShowBid/>}>View Product</Route>
+            <Route path="/verifyuser/:vemail" element={<Verifyuser/>}>View Product</Route>
+
+            
+            
             </Routes> 
         <Footer/>
       
           
-         <div className="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style={{"borderColor":" #3E3E4E"}}>
+         {/* <div className="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style={{"borderColor":" #3E3E4E"}}>
         <div className="row">
             <div className="col-lg-12 text-center mb-3 mb-md-0">
                 <p className="m-0 text-white">&copy; <a href="#">Your Site Name</a>. All Rights Reserved. 
@@ -63,25 +75,7 @@ function App() {
             </div>
            
         </div>
-    </div>
-         {/* <div className="col-lg-6 text-center text-">
-                <ul className="nav d-inline-flex">
-                    <li className="nav-item">
-                        <a className="nav-link text-white py-0" href="#">Privacy</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link text-white py-0" href="#">Terms</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link text-white py-0" href="#">FAQs</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link text-white py-0" href="#">Help</a>
-                    </li>
-                </ul>
-            </div> */}
-         {/* <a href="#" className="btn btn-lg btn-primary back-to-top"><i className="fa fa-angle-double-up"></i></a>
-    */}
+    </div> */}
          
      </>
   );

@@ -1,106 +1,78 @@
 import './Service.css'
 import Nav from '../Navcomponent/Nav';
 import Footer from '../Footercomponents/Footer';
+import { Palette, Code, Smartphone, Globe, Megaphone, Camera } from 'lucide-react';
+
 
 function Service(){
+    
+const services = [
+    {
+      icon: Palette,
+      title: "Graphic Design",
+      description: "Create stunning visuals that capture your brand's essence and captivate your audience."
+    },
+    {
+      icon: Code,
+      title: "Web Development",
+      description: "Build responsive, fast, and user-friendly websites tailored to your specific needs."
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile App Development",
+      description: "Develop innovative mobile applications for iOS and Android platforms."
+    },
+    {
+      icon: Globe,
+      title: "SEO Optimization",
+      description: "Improve your online visibility and drive organic traffic to your website."
+    },
+    {
+      icon: Megaphone,
+      title: "Digital Marketing",
+      description: "Create and execute comprehensive digital marketing strategies to grow your business."
+    },
+    {
+      icon: Camera,
+      title: "Photography",
+      description: "Capture high-quality, professional images for your brand and marketing materials."
+    }
+  ];
+  
     return(
        <>
     
-       {/* Services Start */}
-    <div className="container-fluid pt-5">
-        <div className="container">
-            <div className="text-center pb-2">
-                <h6 className="text-primary text-uppercase font-weight-bold">Our Services</h6>
-                <h1 className="mb-4">Best Biding and Auctions Services</h1>
-            </div>
-            <div className="row pb-3">
-                <div className="col-lg-3 col-md-6 text-center mb-5">
-                    <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                        <i className="fa fa-2x fa-plane text-dark pr-3"></i>
-                        <h6 className="text-white font-weight-medium m-0">Air Freight</h6>
-                    </div>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a className="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div className="col-lg-3 col-md-6 text-center mb-5">
-                    <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                        <i className="fa fa-2x fa-ship text-dark pr-3"></i>
-                        <h6 className="text-white font-weight-medium m-0">Ocean Freight</h6>
-                    </div>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a className="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div className="col-lg-3 col-md-6 text-center mb-5">
-                    <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                        <i className="fa fa-2x fa-truck text-dark pr-3"></i>
-                        <h6 className="text-white font-weight-medium m-0">Land Transport</h6>
-                    </div>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a className="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-                <div className="col-lg-3 col-md-6 text-center mb-5">
-                    <div className="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                        <i className="fa fa-2x fa-store text-dark pr-3"></i>
-                        <h6 className="text-white font-weight-medium m-0">Cargo Storage</h6>
-                    </div>
-                    <p>Diam amet eos at no eos sit lorem, amet rebum ipsum clita stet diam sea est diam</p>
-                    <a className="border-bottom text-decoration-none" href="">Read More</a>
-                </div>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            Our Services
+          </h1>
+          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+            Comprehensive solutions to elevate your brand and drive your business forward
+          </p>
         </div>
+
+        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="p-6">
+                <div className="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mb-4">
+                  <service.icon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-lg font-medium text-gray-900">{service.title}</h3>
+                <p className="mt-2 text-base text-gray-500">{service.description}</p>
+              </div>
+              <div className="px-6 py-4 bg-gray-50">
+                <a href="#" className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-    {/* Services End */}
-
-
-    {/* <nav class="navbar navbar-default">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#"><i class="fa fa-cube"></i>Brand<b>Name</b></a>  		
-		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-			<span class="navbar-toggler-icon"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-	</div> */}
-	{/* <!-- Collection of nav links, forms, and other content for toggling --> */}
-	{/* <div id="navbarCollapse" class="collapse navbar-collapse">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li class="dropdown">
-				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Services <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
-					<li><a href="#">Web Design</a></li>
-					<li><a href="#">Web Development</a></li>
-					<li><a href="#">Graphic Design</a></li>
-					<li><a href="#">Digital Marketing</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-		<form class="navbar-form form-inline">
-			<div class="input-group search-box">								
-				<input type="text" id="search" class="form-control" placeholder="Search by Name"/>
-				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
-			</div>
-		</form> */}
-		<ul class="nav navbar-nav navbar-right">
-			{/* <li><a href="#" class="notifications"><i class="fa fa-bell-o"></i><span class="badge">1</span></a></li>
-			<li><a href="#" class="messages"><i class="fa fa-envelope-o"></i><span class="badge">10</span></a></li> */}
-			<li class="dropdown">
-				<a href="#" data-toggle="dropdown" class="dropdown-toggle user-action"><img src="https://www.tutorialrepublic.com/examples/images/avatar/2.jpg" class="avatar" alt="Avatar"/> Paula Wilson <b class="caret"/><b/></a>
-				<ul class="dropdown-menu">
-					<li><a href="#"><i class="fa fa-user-o"></i> Profile</a></li>
-					<li><a href="#"><i class="fa fa-calendar-o"></i> Calendar</a></li>
-					<li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
-					<li class="divider"></li>
-					<li><a href="#"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
-				</ul>
-			</li>
-		</ul>
-	{/* </div>
-</nav> */}
 
     
        </>

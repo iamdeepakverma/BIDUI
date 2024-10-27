@@ -66,7 +66,7 @@ function Editprofile(){
   <br/>
   <div class="form-group">
     <label for="address">Address:</label>
-    <textarea rows="5" class="form-control" value={address} onChange={e => setAddress(e.target.value)} ></textarea>
+    <textarea rows="5" class="form-control"  ></textarea>
   </div>
   <br/>
   <div class="form-group">
