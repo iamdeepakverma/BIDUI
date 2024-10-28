@@ -33,8 +33,8 @@ function Register() {
   const handleSubmit=()=>{
     const userDetails={"name":name,"email":email,"password":password,"mobile":mobile,"city":city,"address":address,"gender":gender}; 
     axios.post(_apiurluser+"save",userDetails).then((response)=>{
-      console.log("User Registraion Success",response);
-      //  setOutput("User register successfully....");    
+    //  setOutput("User register successfully....");    
+    
     alert("User register successfully....")
      setName("");
      setEmail("");
@@ -233,16 +233,13 @@ function Register() {
               <label className="block text-sm font-medium text-gray-700">Gender</label>
               <div className=" mt-2 space-y-2">
                 {/* fiugiusbg */}
-                <div class="form-group col-md-6">
                                   
                                   <select id="inputState" class="form-control" value={gender} onChange={e => setGender(e.target.value)}>
                                     <option selected>Choose Gender</option>
                                     <option> Male</option>
                                     <option> Female</option>
                                   </select>
-                        </div>
-                {/* fiugiusbg */}
-               
+              
                 </div>
             </div>
             <div>
