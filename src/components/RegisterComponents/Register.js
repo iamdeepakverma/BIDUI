@@ -33,7 +33,8 @@ function Register() {
   const handleSubmit=()=>{
     const userDetails={"name":name,"email":email,"password":password,"mobile":mobile,"city":city,"address":address,"gender":gender}; 
     axios.post(_apiurluser+"save",userDetails).then((response)=>{
-    //  setOutput("User register successfully....");    
+      console.log("User Registraion Success",response);
+      //  setOutput("User register successfully....");    
     alert("User register successfully....")
      setName("");
      setEmail("");
@@ -42,7 +43,7 @@ function Register() {
      setCity("")
      setAddress("");
     }).catch((error)=>{
-     console.log(error); 
+     console.log("User Registraion Failed",error); 
      alert("User register if Failed....")
      
     });
@@ -231,6 +232,16 @@ function Register() {
             <div>
               <label className="block text-sm font-medium text-gray-700">Gender</label>
               <div className=" mt-2 space-y-2">
+                {/* fiugiusbg */}
+                <div class="form-group col-md-6">
+                                  
+                                  <select id="inputState" class="form-control" value={gender} onChange={e => setGender(e.target.value)}>
+                                    <option selected>Choose Gender</option>
+                                    <option> Male</option>
+                                    <option> Female</option>
+                                  </select>
+                        </div>
+                {/* fiugiusbg */}
                 <div className="flex items-center">
                   <input
                     id="male"
@@ -295,7 +306,7 @@ function Register() {
 
           <div>
             <button
-              type="submit"
+              type="button"
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
               onClick={handleSubmit}
             >
