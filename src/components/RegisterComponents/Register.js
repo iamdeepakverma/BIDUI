@@ -242,51 +242,7 @@ function Register() {
                                   </select>
                         </div>
                 {/* fiugiusbg */}
-                <div className="flex items-center">
-                  <input
-                    id="male"
-                    name="gender"
-                    type="checkbox"
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                    checked={gender.male}
-                    onChange={() => handleGenderChange('male')}
-                    disabled={isGenderDisabled && !gender.male}
-                  />
-                  <label htmlFor="male" className={`ml-2 flex items-center text-sm ${isGenderDisabled && !gender.male ? 'text-gray-400' : 'text-gray-700'}`}>
-                    <User className={`h-5 w-5 mr-1 ${isGenderDisabled && !gender.male ? 'text-gray-300' : 'text-gray-400'}`} />
-                    Male
-                  </label>
-                </div>
-                <div className="flex items-center">
-                  <input
-                    id="female"
-                    name="gender"
-                    type="checkbox"
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                    checked={gender.female}
-                    onChange={() => handleGenderChange('female')}
-                    disabled={isGenderDisabled && !gender.female}
-                  />
-                  <label htmlFor="female" className={`ml-2 flex items-center text-sm ${isGenderDisabled && !gender.female ? 'text-gray-400' : 'text-gray-700'}`}>
-                    <UserCheck className={`h-5 w-5 mr-1 ${isGenderDisabled && !gender.female ? 'text-gray-300' : 'text-gray-400'}`} />
-                    Female
-                  </label>
-                </div>
-                <div className="flex items-center">
-                  <input
-                    id="other"
-                    name="gender"
-                    type="checkbox"
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                    checked={gender.other}
-                    onChange={() => handleGenderChange('other')}
-                    disabled={isGenderDisabled}
-                  />
-                  <label htmlFor="other" className={`ml-2 flex items-center text-sm ${isGenderDisabled ? 'text-gray-400' : 'text-gray-700'}`}>
-                    <UserIcon className={`h-5 w-5 mr-1 ${isGenderDisabled ? 'text-gray-300' : 'text-gray-400'}`} />
-                    Other
-                  </label>
-                </div>
+               
                 </div>
             </div>
             <div>
