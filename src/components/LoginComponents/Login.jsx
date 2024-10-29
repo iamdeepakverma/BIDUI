@@ -45,6 +45,7 @@ function Login(){
                 setEmail("");
                 setPassword("");
             }
+            console.log("Login Error",error)
             
         });
     };

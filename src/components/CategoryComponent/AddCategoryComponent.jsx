@@ -30,6 +30,7 @@ function AddCategory() {
     };
     axios.post(_apiurlcategory + "save", formData, config).then((response) => {
       setCatName("");
+      setFile("")
       setOutput("Add sucessfully");
     });
   };
@@ -43,7 +44,7 @@ function AddCategory() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  },[]);
 
   const deleteCategory = (_id) => {
     let s = window.confirm("Are u sure u want to delete?");

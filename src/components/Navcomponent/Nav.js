@@ -27,10 +27,10 @@ function Nav(child) {
                   </Link>
                 </div>
                 <div className="hidden sm:flex sm:items-center sm:ml-6">
-                  <Link to="/" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Home</Link>
-                  <Link to="/about" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">About</Link>
-                  <Link to="/contact" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Contact</Link>
-                  <Link to="/service" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Services</Link>
+                  {/* <Link to="/" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Home</Link> */}
+                  {/* <Link to="/about" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">About</Link> */}
+                  {/* <Link to="/contact" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Contact</Link> */}
+                  {/* <Link to="/service" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Services</Link> */}
                   <div className="relative">
                     <button
                       onClick={() => setIsDetailsOpen(!isDetailsOpen)}

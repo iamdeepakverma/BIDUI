@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { _apiurluser } from '../../ApiUrl';
-import { EyeIcon, EyeOffIcon, FacebookIcon, UserIcon,PersonStanding,User ,UserCheck } from 'lucide-react'
+import { EyeIcon, EyeOffIcon, FacebookIcon} from 'lucide-react'
 
 
 function Register() {
   
-  const [ output , setOutput ] = useState();
+  // const [ output , setOutput ] = useState();
   const [ name , setName ] = useState();
   const [ email , setEmail ] = useState();
   const [ password , setPassword ] = useState();
@@ -49,18 +49,6 @@ function Register() {
     });
    };
 
-   const handleGenderChange = (gender: 'male' | 'female' | 'other') => {
-    setGender(prev => {
-      const newGenders = { male: false, female: false, other: false }
-      if (gender === 'other' || prev[gender]) {
-        return { ...newGenders, [gender]: !prev[gender] }
-      } else {
-        return { ...newGenders, [gender]: true } 
-      }
-    })
-  }
-
-  const isGenderDisabled = gender.male || gender.female
       return(
        <>
             {/* <section class="testimonial py-5" id="testimonial">
