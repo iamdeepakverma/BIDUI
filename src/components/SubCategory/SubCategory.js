@@ -41,6 +41,9 @@ function SubCategory() {
             setsubcatnm("")
             setcatnm("");
             setOutput("Sucessfully Added")
+            setTimeout(() => {
+                setOutput("");
+            },3000)
         })
     }
 

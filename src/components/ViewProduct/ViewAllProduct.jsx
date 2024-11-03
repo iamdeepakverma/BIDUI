@@ -1,34 +1,28 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { _apiurlproduct } from '../../ApiUrl';
-import { Link, useParams } from 'react-router-dom';
+import axios from 'axios'
+import React, { useEffect , useState} from 'react'
+import { Link } from 'react-router-dom'
 
-function ViewProduct() {
-  const params = useParams();
-  const [pList, setPList] = useState([]);
+const ViewAllProduct = () => {
 
-  useEffect(() => {
-    axios.get(`${_apiurlproduct}fetch?_id=${params._id}`)
-      .then((response) => {
-        setPList(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching product:", error);
-      });
-  }, [params._id]); // Dependency array added
+    const [ allProduct , setallProduct ] = useState([])
+    useEffect(() => {
+        axios.get("http://localhost:8080/product/fetch").then((response) => {
+            // console.log(response.data)
+            setallProduct(response.data)
 
+        }).catch((error) => {
+            console.log(error)
+        })
+    },[])
   return (
-    <div className="bg-gradient-to-r from-purple-50 to-indigo-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+  <>
+   <div className="bg-gradient-to-r from-purple-50 to-indigo-50 min-h-screen py-12 px-5 sm:px-6 lg:px-8" >
     <div className="max-w-7xl mx-auto">
       <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">
-        Auction List{' '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">
-          {params.catnm} {params.subcatnm}
-        </span>
+        All Product
       </h1>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
-        {pList.map((row) => (
+        {allProduct.map((row) => (
           <div key={row._id} className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-500 hover:scale-105">
             <div className="md:flex">
               <div className="md:flex-shrink-0">
@@ -77,7 +71,8 @@ function ViewProduct() {
       </div>
     </div>
   </div>
-  );
+  </>
+  )
 }
 
-export default ViewProduct;
+export default ViewAllProduct

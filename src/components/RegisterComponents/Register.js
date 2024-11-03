@@ -15,22 +15,21 @@ function Register() {
   const [ mobile , setMobile] = useState() ;
   const [ city , setCity ] = useState();
   const [ address , setAddress ] = useState();
-  const [gender,setGender] = useState(
-    {
-      male: false,
-      female: false,
-      other: false
-  
-    }
-  );
+  const [gender,setGender] = useState({male: false,female: false,other: false});
   const [showPassword, setShowPassword] = useState(false)
+  const [errors, setErrors] = useState({});
+
 
   
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
  
-  const handleSubmit=()=>{
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    if (!isValid()) {
+      return; // Agar form valid nahi hai toh submit nahi karega
+    }
     const userDetails={"name":name,"email":email,"password":password,"mobile":mobile,"city":city,"address":address,"gender":gender}; 
     axios.post(_apiurluser+"save",userDetails).then((response)=>{
     //  setOutput("User register successfully....");    
@@ -47,75 +46,26 @@ function Register() {
      alert("User register if Failed....")
      
     });
+
    };
+
+   const isValid = () => {
+    const errors = {};
+
+    if (!name) errors.name = "Full Name is required";
+    if (!email) errors.email = "Email is required";
+    if (!password) errors.password = "Password is required";
+    if (!mobile) errors.mobile = "Mobile Number is required";
+    if (!city) errors.city = "City selection is required";
+    if (!address) errors.address = "Address is required";
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+   }
 
       return(
        <>
-            {/* <section class="testimonial py-5" id="testimonial">
-    <div class="container">
-        <div class="row ">
-            <div class="col-md-4 py-5 bg-primary text-white text-center ">
-                <div class=" ">
-                    <div class="card-body">
-                        <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style={{"width":"30%"}}/>
-                        <h2 class="py-3">Registration</h2>
-                        <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
-
-</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 py-5 border">
-                <h4 class="pb-4">Please fill with your details</h4>
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <input id="Full Name" name="Full Name" placeholder="Full Name" class="form-control" type="text" value={name} onChange={e => setName(e.target.value)}/>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <input type="email" class="form-control" id="inputEmail4" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
-                        </div>
-                       
-                        <div class="form-group col-md-6 ">
-                          <input type="password" class="form-control"  placeholder="password" value={password} onChange={e => setPassword(e.target.value)}/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input id="Mobile No." name="Mobile No." placeholder="Mobile No." class="form-control" required="required" type="text" value={mobile} onChange={e => setMobile(e.target.value)}/>
-                        </div>
-                      </div>
-                    <div class="form-row">
-                       
-                        <div class="form-group col-md-6">
-                        <select id="inputState" class="form-control" value={city} onChange={e => setCity(e.target.value)}>
-                                    <option selected>Choose City</option>
-                                    <option> Indore</option>
-                                    <option> Dewas</option>
-                                    <option> Ujjain</option>
-                                    <option> Bhopal</option>
-                                  </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                                  
-                                  <select id="inputState" class="form-control" value={gender} onChange={e => setGender(e.target.value)}>
-                                    <option selected>Choose Gender</option>
-                                    <option> Male</option>
-                                    <option> Female</option>
-                                  </select>
-                        </div>
-                        <div class="form-group col-md-12">
-                                  <textarea id="comment" name="comment" cols="30" rows="5" class="form-control" value={address} onChange={e => setAddress(e.target.value)}></textarea>
-                        </div>
-                    </div>
-                   
-                    <div class="form-row">
-                        <button type="button" onClick={handleSubmit} class="btn btn-danger">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section> */}
-
+           
 {/* dsokfgrwhgoren */}
 <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-100 p-4 sm:p-6 lg:p-8">
       <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-2xl shadow-2xl">
@@ -134,10 +84,13 @@ function Register() {
                 name="fullName"
                 type="text"
                 required
+                // required
                 className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="John Doe"
                 value={name} onChange={e => setName(e.target.value)}
               />
+               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -154,6 +107,8 @@ function Register() {
                 value={email} onChange={e => setEmail(e.target.value)}
           
               />
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+
             </div>
             <div className="relative">
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
@@ -182,6 +137,7 @@ function Register() {
                   <EyeIcon className="h-5 w-5 text-gray-400" />
                 )}
               </button>
+              {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
             </div>
             <div>
               <label htmlFor="mobileNo" className="block text-sm font-medium text-gray-700">
@@ -197,6 +153,7 @@ function Register() {
                 placeholder="+1 (555) 123-4567"
                 value={mobile} onChange={e => setMobile(e.target.value)}
               />
+              {errors.mobile && <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>}
             </div>
             <div>
               <label htmlFor="city" className="block text-sm font-medium text-gray-700">
@@ -216,6 +173,8 @@ function Register() {
                 <option value="tokyo">Tokyo</option>
                 <option value="sydney">Sydney</option>
               </select>
+              {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
+
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Gender</label>
@@ -242,6 +201,7 @@ function Register() {
                 placeholder="Tell us about yourself"
                 value={address} onChange={e => setAddress(e.target.value)}
               ></textarea>
+              {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
             </div>
           </div>
 

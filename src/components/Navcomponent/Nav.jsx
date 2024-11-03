@@ -163,7 +163,7 @@ function Nav(child) {
                   <Link to="/" className="px-2 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Home</Link>
                   <Link to="/about" className="px-2 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">About</Link>
                   <Link to="/service" className="px-2 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Services</Link>
-                  <Link to="/viewcategory" className="px-2 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Search Products</Link>
+                  <Link to="/viewcategory" className="px-2 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Category</Link>
 
                   <div className="relative">
                     <button
@@ -183,7 +183,7 @@ function Nav(child) {
                     {isDetailsOpen && (
                       <div className="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                         <Link to="/addproduct" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Add Product</Link>
-                        <Link to="/viewproduct" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">View Product</Link>
+                        <Link to="/ViewAllProduct" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">View Product</Link>
                       </div>
                     )}
                   </div>

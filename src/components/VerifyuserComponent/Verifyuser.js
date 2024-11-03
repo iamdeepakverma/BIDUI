@@ -1,36 +1,38 @@
-import { Navigate , useParams } from 'react-router-dom';
-import axios from 'axios';
-import { _apiurluser } from '../../ApiUrl';
+import { Navigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+// import { _apiurluser } from '../../ApiUrl';
+import { useEffect } from "react";  
 
 function Verifyuser() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const token = query.get('token');
 
-  const params = useParams();
-
-  axios.get(_apiurluser+"fetch?email="+params.vemail).then((response)=>{
-    var userDetails=response.data[0];
-    if(userDetails.__v==0)
-    {
-      let updateDetails={"condition_obj":{"email":params.vemail},"set_condition":{"status":1,"__v":1}};
-      axios.patch(_apiurluser+"update",updateDetails).then((response)=>{
-        console("user verified....");
-      }).catch((err)=>{
-        console.log(err);
-      });  
+    if (token) {
+      axios.get(`http://localhost:8080/user/verify-email?token=${token}`)
+        .then(response => {
+          console.log(response.data);
+          if (response.data.result === "Email verified successfully.") {
+            // Agar verification successful ho, toh login page par navigate karein
+            navigate('/login'); // Ensure karein ki yeh path aapke frontend par sahi hai
+          }
+        })
+        .catch(error => {
+          console.error("Verification failed:", error);
+          alert("Verification failed! Link check karein.");
+        });
+    } else {
+      alert("Verification ke liye koi token nahi diya gaya.");
     }
-    else
-    {
-      alert("Mail verification link expired.....");
-    }
+  }, [navigate]);
 
-  }).catch((err)=>{
-    console.log(err);
-  });
-
-  return (
-    <div>
-    <Navigate to='/login' />
-    </div>
-  );
-}
+return (
+<>
+<div>Verifying your email...</div>;
+</>
+  
+)}
 
 export default Verifyuser;

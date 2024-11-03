@@ -58,6 +58,10 @@ function AddCategory() {
     }
   };
 
+  const handleClosed = () => {
+    setOpen(false);
+  };
+  
   const style = {
     position: "absolute",
     top: "50%",
@@ -83,91 +87,7 @@ function AddCategory() {
   });
   return (
     <>
-      {/* <div class="container header-1">
-        <h1>Add Category</h1>
-        <button
-          type="button"
-          data-toggle="modal"
-          data-target="#exampleModal"
-          class="btn btn-danger "
-        >
-          Add Category
-        </button>
-      </div>
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header" id="add-category">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Add Category
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-                <font>{output}</font>
-              </button>
-            </div>
-
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="catnm" class="col-form-label">
-                    Category Name
-                  </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="recipient-name"
-                    value={catName}
-                    onChange={(e) => setCatName(e.target.value)}
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="file" class="col-form-label">
-                    Category Icon
-                  </label>
-                  <input
-                    type="file"
-                    class="form-control"
-                    onChange={handleChange}
-                  />
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                onClick={handleSubmit}
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
-
-      <br /> */}
-      {/* this is add category modaal */}
+     
       <div>
         <Modal
           open={open}
@@ -188,9 +108,7 @@ function AddCategory() {
                 onChange={(e) => setCatName(e.target.value)}
               />
             </Typography>
-            {/* <Typography sx={{mb:2}}>
-            Category Icon
-            </Typography> */}
+           
             <Button
               component="label"
               role={undefined}
@@ -208,53 +126,13 @@ function AddCategory() {
             </Button>
             <Box sx={{mt:5,display:"flex",justifyContent:"flex-end",columnGap:"5px"}}>
             <Button  onClick={handleSubmit} variant="contained">Save</Button>
-            <Button  variant="outlined">Cancel</Button>
+            <Button  variant="outlined" onClick={handleClose} >Cancel</Button>
             </Box>
           </Box>
         </Modal>
       </div>
-      {/* <!-- Team Start --> */}
-      {/* <div class="container-fluid pt-5  ">
-        <div class="container  ">
-          <div class="row ff ">
-            {clist.map((row) => (
-              <div class="col-lg-4 col-md-3 ">
-                <div class="team card overflow-hidden border-0 mb-5 ">
-                  <img
-                    class="card-img-top "
-                    src={`assets/uploads/caticons/${row.caticonnm}`}
-                    alt=""
-                  />
-                  <div class="card-body text-center p-0">
-                    <div class="team-text d-flex flex-column justify-content-end bg-secondary">
-                      <h5 class="font-weight-bold">
-                        <b>{row.catnm}</b>
-                      </h5>
-                      <span>Designation</span>
-                    </div>
-                    <div class="team-social d-flex align-items-center justify-content-center bg-primary">
-                      <a class="btn btn-outline-dark btn-social mr-2" href="#">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                      <a class="btn btn-outline-dark btn-social mr-2" href="#">
-                        <i class="fab fa-facebook-f"></i>
-                      </a>
-                      <a class="btn btn-outline-dark btn-social mr-2" href="#">
-                        <i class="fab fa-linkedin-in"></i>
-                      </a>
-                      <a class="btn btn-outline-dark btn-social" href="#">
-                        <i class="fab fa-instagram"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      sdvbiadbida */}
+     
+     {/* modal popup end */}
 
       <div className="container mx-auto p-4 bg-gray-100 min-h-screen">
         <div className="flex justify-between m-2">

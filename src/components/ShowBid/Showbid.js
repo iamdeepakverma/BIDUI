@@ -14,6 +14,13 @@ function ShowBid() {
       setBidDetails(response.data);
     })
   });  
+  // useEffect(()=>{
+  //   axios.get("http://localhost:8080/bid/fetch").then((response)=>{
+  //     console.log("its working",response);
+  //   }).catch((err)=>{
+  //     console.log("error is alow working",err);
+  //   })
+  // })
     
   return (
     <div>

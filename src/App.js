@@ -27,6 +27,7 @@ import ViewProduct from './components/ViewProduct/ViewProduct';
 import Bidproduct from './components/BidProduct/BidProduct';
 import ShowBid from './components/ShowBid/Showbid';
 import Verifyuser from './components/VerifyuserComponent/Verifyuser';
+import ViewAllProduct from './components/ViewProduct/ViewAllProduct';
 
 
 function App() {
@@ -57,7 +58,8 @@ function App() {
             <Route path="/viewproduct/:_id" element={<ViewProduct/>}>View Product</Route>
             <Route path="/bidproduct/:pid" element={<Bidproduct/>}>View Product</Route>
             <Route path="/showbid/:pid" element={<ShowBid/>}>View Product</Route>
-            <Route path="/verifyuser/:vemail" element={<Verifyuser/>}>View Product</Route>
+            <Route path="/verify-email" element={<Verifyuser/>}>View Product</Route>
+            <Route path="/ViewAllProduct" element={<ViewAllProduct/>}>View Product</Route>
 
             
             
