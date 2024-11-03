@@ -238,11 +238,12 @@ function Nav(child) {
                   <Link to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About</Link>
                   <Link to="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</Link>
                   <Link to="/service" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Services</Link>
+                 
                   <button
                     onClick={() => setIsDetailsOpen(!isDetailsOpen)}
                     className="flex justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none"
                   >
-                    Details
+                    Manage Product
                     <svg
                       className={`ml-1 h-4 w-4 transition-transform ${isDetailsOpen ? 'rotate-180' : ''}`}
                       fill="none"
@@ -254,9 +255,30 @@ function Nav(child) {
                   </button>
                   {isDetailsOpen && (
                     <div className="pl-4 space-y-1">
-                      <a href="/team" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Our Team</a>
-                      <a href="/locations" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Locations</a>
-                      <a href="/history" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">History</a>
+                       <Link to="/addproduct" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Add Product</Link>
+                       <Link to="/ViewAllProduct" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">View Product</Link>
+                    </div>
+                  )}
+                  <button
+                    onClick={() => setIsDetailsOpen(!isDetailsOpen)}
+                    className="flex justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none"
+                  >
+                    User
+                    <svg
+                      className={`ml-1 h-4 w-4 transition-transform ${isDetailsOpen ? 'rotate-180' : ''}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {isDetailsOpen && (
+                    <div className="pl-4 space-y-1">
+                       <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Edit Password</Link>
+                        <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Edit Profile</Link>
+                        <Link to="" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Settings</Link>
+                        <Link to="/logout" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">Logout</Link>
                     </div>
                   )}
                 </div>
