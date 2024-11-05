@@ -80,7 +80,7 @@ function Footer(){
             <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
             <div className="flex items-center">
               <Mail className="h-5 w-5 mr-2 text-gray-400" />
-              <a href="mailto:info@example.com" className="text-gray-400 hover:text-white transition-colors">info@example.com</a>
+              <a href="mailto:info@example.com" className="text-gray-400 hover:text-white transition-colors">{localStorage.getItem("email") || "info@example.com"}</a>
             </div>
             <div className="flex items-center">
               <Phone className="h-5 w-5 mr-2 text-gray-400" />

@@ -1,14 +1,18 @@
-import './Register.css';
+import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { _apiurluser } from '../../ApiUrl';
+import ModalPopup from '../Modal/ModalPopup';
+import { CheckCircle,XCircle } from "lucide-react";
+
+
+// icons
 import { EyeIcon, EyeOffIcon, FacebookIcon} from 'lucide-react'
 
 
 function Register() {
   
-  // const [ output , setOutput ] = useState();
   const [ name , setName ] = useState();
   const [ email , setEmail ] = useState();
   const [ password , setPassword ] = useState();
@@ -18,12 +22,21 @@ function Register() {
   const [gender,setGender] = useState({male: false,female: false,other: false});
   const [showPassword, setShowPassword] = useState(false)
   const [errors, setErrors] = useState({});
+  const [output, setoutput] = useState();
+  const [modalmessage , setModalmessage] = useState({title:"",content:""});
+  const [openModal, setOpenModal] = useState(false);
+  const [modalicon , setModalicon] = useState(null);
+
 
 
   
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
+
+/*************  ✨ Codeium Command ⭐  *************/
+/******  c2b545ad-50f1-4620-b57f-11692c839ffc  *******/
+
  
   const handleSubmit=(e)=>{
     e.preventDefault();
@@ -32,19 +45,31 @@ function Register() {
     }
     const userDetails={"name":name,"email":email,"password":password,"mobile":mobile,"city":city,"address":address,"gender":gender}; 
     axios.post(_apiurluser+"save",userDetails).then((response)=>{
-    //  setOutput("User register successfully....");    
-    
-    alert("User register successfully....")
+     setoutput(response.data.result);
+     console.log(response.data.result);
+     
+    //  alert("User register successfully....");
+ 
      setName("");
      setEmail("");
      setPassword("");
      setMobile("")
      setCity("")
      setAddress("");
+
+     if(response.data.result === "sucess"){
+      // handleClickOpen();
+      setModalmessage({title:"Registration Successful!",content:"Please go your Gamil Account And verify your Account."})
+      setOpenModal(true)
+      setModalicon(<CheckCircle className="w-16 h-16 text-green-500 animate-bounce"/>); // Success icon
+     }
+
     }).catch((error)=>{
      console.log("User Registraion Failed",error); 
-     alert("User register if Failed....")
-     
+    //  alert("User register if   Failed....")
+     setModalmessage({title:"Registration Failed!",content:"Please try again."})
+     setOpenModal(true)
+     setModalicon(<XCircle className="w-16 h-16 text-red-500 animate-bounce"/>); // Success icon
     });
 
    };
@@ -181,7 +206,7 @@ function Register() {
               <div className=" mt-2 space-y-2">
                 {/* fiugiusbg */}
                                   
-                                  <select id="inputState" class="form-control" value={gender} onChange={e => setGender(e.target.value)}>
+                                  <select id="inputState" className="form-control" value={gender} onChange={e => setGender(e.target.value)}>
                                     <option selected>Choose Gender</option>
                                     <option> Male</option>
                                     <option> Female</option>
@@ -250,8 +275,18 @@ function Register() {
       </div>
     </div>
 
+    {/* modal popup start */}
+
+    <ModalPopup
+     open={openModal} 
+      message={modalmessage}
+       handleClose={()=> setOpenModal(false)}
+       icon={modalicon}
+        />
+
+    {/* modal popup end*/}
        </>
     );
 }
 
-export default Register;
+export default Register;  

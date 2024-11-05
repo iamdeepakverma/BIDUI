@@ -1,4 +1,3 @@
-import { Navigate, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { _apiurluser } from '../../ApiUrl';
@@ -11,7 +10,8 @@ function Verifyuser() {
     const token = query.get('token');
 
     if (token) {
-      axios.get(`https://bidapi.onrender.com/user/verify-email?token=${token}`)
+      // axios.get(`https://bidapi.onrender.com/user/verify-email?token=${token}`)
+      axios.get(`http://localhost:8080/user/verify-email?token=${token}`)
         .then(response => {
           console.log(response.data);
           if (response.data.result === "Email verified successfully.") {

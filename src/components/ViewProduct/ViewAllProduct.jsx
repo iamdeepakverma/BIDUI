@@ -1,12 +1,13 @@
 import axios from 'axios'
 import React, { useEffect , useState} from 'react'
 import { Link } from 'react-router-dom'
+import { _apiurlproduct } from '../../ApiUrl'
 
 const ViewAllProduct = () => {
 
     const [ allProduct , setallProduct ] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:8080/product/fetch").then((response) => {
+        axios.get(_apiurlproduct + "fetch").then((response) => {
             // console.log(response.data)
             setallProduct(response.data)
 
